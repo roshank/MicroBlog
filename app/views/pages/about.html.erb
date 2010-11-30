@@ -11,8 +11,8 @@
 		<% @items.each do |item| %>
 			<li>
 				<%= item_image item.get('mediumimage/url'), item.get('title')%>
+				<b><%= item.get('offersummary/lowestnewprice/formattedprice') %></b>
 				<%= item.get('title')%>
-				<%= item.get('asin')%>
 			</li>
 		<% end %>
 	<% end %>
