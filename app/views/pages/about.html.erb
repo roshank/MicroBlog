@@ -1,4 +1,19 @@
 <h1>About Us</h1>
-<p>
-	No.
-</p>
+
+<%= form_tag(about_path, :method => "get") do %>
+  <%= label_tag(:q, "Search for:") %>
+  <%= text_field_tag(:q) %>
+  <%= submit_tag("Search") %>
+<% end %>
+
+<ul class="items">
+	<% if @items != nil %>
+		<% @items.each do |item| %>
+			<li>
+				<%= item_image item.get('mediumimage/url'), item.get('title')%>
+				<%= item.get('title')%>
+				<%= item.get('asin')%>
+			</li>
+		<% end %>
+	<% end %>
+</ul>
