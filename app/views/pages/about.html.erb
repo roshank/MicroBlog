@@ -10,8 +10,10 @@
 	<% if @items != nil %>
 		<% @items.each do |item| %>
 			<li>
-				<%= item_image item.get('mediumimage/url'), item.get('title')%>
-				<b><%= item.get('offersummary/lowestnewprice/formattedprice') %></b>
+				<%= link_to (item_image item.get('mediumimage/url'), item.get('title')), new_item_path(:title => item.get('title'), 
+								  :img => item.get('largeimage/url'),
+								  :price => item.get('itemattributes/listprice/formattedprice')) %>
+				<b><%= item.get('itemattributes/listprice/formattedprice') %></b>
 				<%= item.get('title')%>
 			</li>
 		<% end %>
